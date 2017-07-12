@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   android:id="@+id/toolbar_solo_app_config"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:background="@color/white"
+                                   android:fitsSystemWindows="true"
+                                   android:minHeight="?actionBarSize"
+                                   app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/solo_app_config"
+                android:textColor="@color/toolbarTitleColor"
+                android:textSize="18.0sp" />
+
+        <Switch
+                android:id="@+id/general_switch_button"
+                style="@style/MaterialSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18.0dip"
+                android:checked="true" />
+
+        <TextView
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@id/general_switch_button"
+                android:paddingRight="24.0dip"
+                android:text="@string/save"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18.0sp" />
+
+        <TextView
+                android:id="@+id/reverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@id/save"
+                android:paddingRight="14.0dip"
+                android:text="@string/reverse"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18.0sp" />
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

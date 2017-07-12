@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/change_passwd"
+        android:title="@string/change_passwd"
+        />
+
+    <item
+        android:id="@+id/offline_device"
+        android:title="@string/offline_device"
+        />
+</menu>

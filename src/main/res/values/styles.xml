@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MaterialSwitch">
+        <item name="sw_trackSize">16.0dp</item>
+        <item name="sw_trackCap">round</item>
+        <item name="sw_thumbRadius">10.0dip</item>
+        <item name="sw_thumbElevation">2.0dip</item>
+        <item name="sw_animDuration">@android:integer/config_shortAnimTime</item>
+        <item name="sw_interpolator">@android:anim/decelerate_interpolator</item>
+    </style>
+
+    <style name="succinct_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="succinctProgressDialog" parent="@style/succinct_dialog">
+        <item name="android:windowBackground">@drawable/shape_succinct_dialog</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="MaterialDialog.Light" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="materialDialogBackground">@color/dialog_background_light</item>
+        <item name="materialDialogButtonBarDividerColor">@color/button_bar_divider_color_light</item>
+        <item name="materialDialogDisabledButtonTextColor">@color/dialog_button_disabled_text_color_light</item>
+    </style>
+    <style name="CustomLightTheme" parent="@style/MaterialDialog.Light">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="materialDialogTheme">@style/CustomLightTheme</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen" parent="@style/AppTheme">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+
+    </style>
+
+    <style name="Material" />
+    <style name="Material.Drawable" parent="@style/Material" />
+    <style name="Material.Drawable.CheckBox" parent="@style/Material.Drawable">
+        <item name="cbd_width">32.0dip</item>
+        <item name="cbd_height">32.0dip</item>
+        <item name="cbd_boxSize">20.0dip</item>
+        <item name="cbd_cornerRadius">2.0dip</item>
+        <item name="cbd_strokeSize">2.0dip</item>
+        <item name="cbd_animDuration">@android:integer/config_mediumAnimTime</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Base.ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark">
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
+        <item name="colorControlNormal">?android:textColorPrimary</item>
+    </style>
+
+    <style name="MaterialDialog" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="materialDialogBackground">@color/dialog_background_dark</item>
+        <item name="materialDialogButtonBarDividerColor">@color/button_bar_divider_color_dark</item>
+        <item name="materialDialogDisabledButtonTextColor">
+            @color/dialog_button_disabled_text_color_dark
+        </item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="CustomLightTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+</resources>

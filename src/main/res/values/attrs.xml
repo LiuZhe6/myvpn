@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="sw_trackSize" format="reference|dimension"/>
+    <attr name="sw_trackColor" format="reference|color"/>
+    <attr name="sw_trackCap" format="integer">
+        <enum name="butt" value="0"/>
+        <enum name="round" value="1"/>
+        <enum name="square" value="2"/>
+    </attr>
+    <attr name="sw_thumbColor" format="reference|color"/>
+    <attr name="sw_thumbRadius" format="reference|dimension"/>
+    <attr name="sw_thumbElevation" format="reference|dimension"/>
+    <attr name="sw_animDuration" format="reference|integer"/>
+    <attr name="sw_interpolator" format="reference"/>
+
+    <attr name="materialDialogBackground" format="reference|color"/>
+    <attr name="materialDialogButtonBarDividerColor" format="color"/>
+    <attr name="materialDialogButtonTextColor" format="color"/>
+    <attr name="materialDialogDisabledButtonTextColor" format="color"/>
+    <attr name="materialDialogTheme" format="reference"/>
+
+
+
+    <attr name="cbd_width" format="reference|dimension"/>
+    <attr name="cbd_height" format="reference|dimension"/>
+    <attr name="cbd_boxSize" format="reference|dimension"/>
+    <attr name="cbd_cornerRadius" format="reference|dimension"/>
+    <attr name="cbd_strokeSize" format="reference|dimension"/>
+    <attr name="cbd_strokeColor" format="reference|color"/>
+    <attr name="cbd_tickColor" format="reference|color"/>
+    <attr name="cbd_animDuration" format="reference|integer"/>
+
+</resources>

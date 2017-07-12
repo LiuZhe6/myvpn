@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16.0dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/listHeaderBackgroundColor"
+                android:padding="16.0dp"
+                android:text="@string/faq_questions"
+                android:textColor="@color/lightTextColor"
+                android:textSize="14.0sp"
+                android:textStyle="bold"/>
+
+        <ExpandableListView
+                android:id="@+id/question_list"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:divider="@null"
+                android:dividerHeight="0.0dp"
+                android:drawSelectorOnTop="true"/>
+
+        <TextView
+                android:id="@+id/contact_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="32.0dp"
+                android:layout_marginLeft="34.0dp"
+                android:layout_marginRight="34.0dp"
+                android:layout_marginTop="8.0dp"
+                android:background="@color/colorPrimary"
+                android:padding="17.0dp"
+                android:text="@string/need_help"
+                android:textColor="@color/white"
+                android:textSize="16.0sp"/>
+    </LinearLayout>
+
+</ScrollView>

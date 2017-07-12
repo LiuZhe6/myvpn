@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/chip_text_color_dark"
+        tools:context="com.vpn.Activity.AboutActivity">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_us"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/toolbarTitleColor"
+            android:textSize="18.0sp"
+    />
+
+    <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="447dp"
+            android:layout_weight="0.56"
+            android:src="@drawable/slogan_about_v31" />
+
+    <Button
+            android:id="@+id/user_service_contract"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14.0sp"
+            android:textColor="@color/colorPrimary"
+            android:background="#00000000"
+            android:text="@string/user_service_contract"
+    />
+    <Button
+            android:id="@+id/user_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textSize="14.0sp"
+            android:textColor="@color/colorPrimary"
+            android:background="#00000000"
+            android:text="@string/user_privacy_policy"
+    />
+
+    <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="version"
+    />
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:orientation="vertical"
+                android:padding="16.0dip">
+
+    <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="20.0dip"
+            android:layout_height="20.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_close_button"/>
+
+    <ImageView
+            android:id="@+id/star_img"
+            android:layout_width="150.0dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/close_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16.0dip"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_star_ribbon"/>
+
+    <TextView
+            android:id="@+id/share_task_tip_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/share_task_succeed_tip"
+            android:layout_marginTop="5.0dip"
+            android:gravity="center"
+            android:text="@string/share_task_succeed_tips2"
+            android:textSize="14.0sp"/>
+
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_below="@id/share_task_tip_2"
+            android:layout_marginBottom="15.0dip"
+            android:layout_marginTop="15.0dip"
+            android:background="@color/dividerColor"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:orientation="horizontal"
+            android:weightSum="2.0">
+
+        <TextView
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="40.0dip"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="5.0dip"
+                android:layout_weight="1.0"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/ok_i_know"
+                android:textSize="16.0sp"/>
+
+        <TextView
+                android:id="@+id/share_button"
+                android:layout_width="match_parent"
+                android:layout_height="40.0dip"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_weight="1.0"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="@string/recharge_credit"
+                android:textColor="@color/white"
+                android:textSize="16.0sp"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@id/share_task_succeed_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/star_img"
+            android:layout_marginTop="20.0dip"
+            android:gravity="center"
+            android:text="@string/share_task_succeed_tip"
+            android:textSize="14.0sp"/>
+
+</RelativeLayout>
