@@ -1,60 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="myvpn" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="eu.chainfire-libsuperuser-1.0.0.201704021214" external.linked.project.path="$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../target/android/generated/source" />
-        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../target/android/generated/source" />
-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../target/android/intermediates/manifest/AndroidManifest.xml" />
-        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../src/main/res" />
-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../src/main/assets" />
-        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../src/main/libs" />
-        <option name="APK_PATH" value="/../../target/android/intermediates/build_integration/myvpn-BUILD-INTEGRATION.apk" />
-        <option name="RUN_PROGUARD" value="true" />
-        <proGuardCfgFiles>
-          <file>$MODULE_DIR$/../../proguard-sbt.txt</file>
-        </proGuardCfgFiles>
+        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/bin/generated/source" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/bin/generated/source" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/assets" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/libs" />
+        <option name="APK_PATH" value="/../../../../../.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214" />
+        <option name="LIBRARY_PROJECT" value="true" />
+        <proGuardCfgFiles />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/../../target/classes" />
-    <output-test url="file://$MODULE_DIR$/../../target/test-classes" />
+    <output url="file://$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/classes.jar" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../..">
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/scala" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../target/android/generated/source" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/test/scala" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../target/src_managed/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../target/resource_managed/main" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../target/resource_managed/test" type="java-test-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/../../target/resolution-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../target/scala-2.11" />
-      <excludeFolder url="file://$MODULE_DIR$/../../target/streams" />
+    <content url="file://$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214">
+      <sourceFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/src" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/resources" type="java-resource" />
+      <excludeFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/eu.chainfire-libsuperuser-1.0.0.201704021214/bin" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="SBT: com.android.support:support-annotations:25.1.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.google.code.findbugs:jsr305:3.0.2:jar" level="project" />
     <orderEntry type="module-library">
       <library name="SBT: unmanaged-sources-and-docs">
         <CLASSES />
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/24.0.0/animated-vector-drawable-24.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/24.0.0/appcompat-v7-24.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/24.0.0/support-v4-24.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-vector-drawable/24.0.0/support-vector-drawable-24.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/exposed-instrumentation-api-publish/0.5/exposed-instrumentation-api-publish-0.5-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/rules/0.5/rules-0.5-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-core/2.2.2/espresso-core-2.2.2-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-idling-resource/2.2.2/espresso-idling-resource-2.2.2-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/25.1.0/animated-vector-drawable-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/25.1.0/appcompat-v7-25.1.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/cardview-v7/25.1.0/cardview-v7-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/design/25.1.0/design-25.1.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/preference-v14/25.1.0/preference-v14-25.1.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/preference-v7/25.1.0/preference-v7-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/recyclerview-v7/25.1.0/recyclerview-v7-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-compat/25.1.0/support-compat-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-core-ui/25.1.0/support-core-ui-25.1.0-sources.jar!/" />
@@ -63,21 +46,22 @@
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-media-compat/25.1.0/support-media-compat-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/support-vector-drawable/25.1.0/support-vector-drawable-25.1.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/transition/25.1.0/transition-25.1.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/cardview-v7/25.1.0/cardview-v7-25.1.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/preference-v14/25.1.0/preference-v14-25.1.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/preference-v7/25.1.0/preference-v7-25.1.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/exposed-instrumentation-api-publish/0.5/exposed-instrumentation-api-publish-0.5-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/rules/0.5/rules-0.5-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-core/2.2.2/espresso-core-2.2.2-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-idling-resource/2.2.2/espresso-idling-resource-2.2.2-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.evernote/android-job/srcs/android-job-1.1.3-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.github.clans/fab/srcs/fab-1.6.4-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/net.vrallev.android/cat/srcs/cat-1.0.5-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.github.jorgecastilloprz/fabprogresscircle/srcs/fabprogresscircle-1.01-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.mikepenz/fastadapter/srcs/fastadapter-2.1.5-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.mikepenz/iconics-core/srcs/iconics-core-2.8.2-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.mikepenz/materialdrawer/srcs/materialdrawer-5.8.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.mikepenz/materialize/srcs/materialize-1.0.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/net.vrallev.android/cat/srcs/cat-1.0.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="SBT: com.google.code.findbugs:jsr305:3.0.2:jar" level="project" />
     <orderEntry type="module-library">
       <library name="SBT: unmanaged-jars">
         <CLASSES>
@@ -119,54 +103,20 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="eu.chainfire-libsuperuser-1.0.0.201704021214" exported="" />
-    <orderEntry type="module" module-name="com.mikepenz-materialize-1.0.0" exported="" />
-    <orderEntry type="module" module-name="com.mikepenz-materialdrawer-5.8.1" exported="" />
-    <orderEntry type="module" module-name="com.mikepenz-iconics-core-2.8.2" exported="" />
-    <orderEntry type="module" module-name="com.mikepenz-fastadapter-2.1.5" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-tasks-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-iid-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-gcm-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-basement-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-base-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-analytics-impl-10.0.1" exported="" />
-    <orderEntry type="module" module-name="com.google.android.gms-play-services-analytics-10.0.1" exported="" />
-    <orderEntry type="module" module-name="net.vrallev.android-cat-1.0.5" exported="" />
-    <orderEntry type="module" module-name="com.github.clans-fab-1.6.4" exported="" />
-    <orderEntry type="module" module-name="com.evernote-android-job-1.1.3" exported="" />
-    <orderEntry type="module" module-name="com.android.support-preference-v7-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-preference-v14-25.1.0" exported="" />
-    <orderEntry type="library" name="SBT: com.squareup.okio:okio:1.13.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.squareup.okhttp3:okhttp:3.8.0:jar" level="project" />
     <orderEntry type="library" name="SBT: org.hamcrest:hamcrest-library:1.3:jar" level="project" />
     <orderEntry type="library" name="SBT: org.hamcrest:hamcrest-integration:1.3:jar" level="project" />
     <orderEntry type="library" name="SBT: org.hamcrest:hamcrest-core:1.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: net.jcip:jcip-annotations:1.0:jar" level="project" />
     <orderEntry type="library" name="SBT: junit:junit:4.12:jar" level="project" />
     <orderEntry type="library" name="SBT: javax.inject:javax.inject:1:jar" level="project" />
     <orderEntry type="library" name="SBT: javax.annotation:javax.annotation-api:1.2:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.squareup:javawriter:2.1.1:jar" level="project" />
-    <orderEntry type="module" module-name="com.android.support-animated-vector-drawable-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-appcompat-v7-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-design-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-recyclerview-v7-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-compat-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-core-ui-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-core-utils-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-fragment-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-media-compat-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-v4-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-support-vector-drawable-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.android.support-transition-25.1.0" exported="" />
-    <orderEntry type="library" name="SBT: com.android.support:support-annotations:25.1.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.google.code.gson:gson:2.8.1:jar" level="project" />
-    <orderEntry type="module" module-name="com.android.support-cardview-v7-25.1.0" exported="" />
-    <orderEntry type="module" module-name="com.github.jorgecastilloprz-fabprogresscircle-1.01" exported="" />
-    <orderEntry type="library" name="SBT: com.j256.ormlite:ormlite-android:5.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.j256.ormlite:ormlite-core:5.0:jar" level="project" />
-    <orderEntry type="module" module-name="com.twofortyfouram-android-plugin-api-for-locale-1.0.2" exported="" />
     <orderEntry type="library" name="SBT: dnsjava:dnsjava:2.1.7:jar" level="project" />
-    <orderEntry type="library" name="SBT: net.jcip:jcip-annotations:1.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.squareup.okio:okio:1.13.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.squareup.okhttp3:okhttp:3.8.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.squareup:javawriter:2.1.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.j256.ormlite:ormlite-core:5.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.j256.ormlite:ormlite-android:5.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.google.code.gson:gson:2.8.1:jar" level="project" />
     <orderEntry type="library" name="SBT: com.google.zxing:core:3.1.0:jar" level="project" />
     <orderEntry type="library" name="SBT: net.glxn.qrgen:android:2.0:jar" level="project" />
     <orderEntry type="library" name="SBT: net.glxn.qrgen:core:2.0:jar" level="project" />
