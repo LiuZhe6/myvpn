@@ -29,5 +29,12 @@
     <attr name="cbd_strokeColor" format="reference|color"/>
     <attr name="cbd_tickColor" format="reference|color"/>
     <attr name="cbd_animDuration" format="reference|integer"/>
-
+    <declare-styleable name="DropDownPreference">
+        <attr name="android:entries" />
+        <attr name="android:entryValues" />
+    </declare-styleable>
+    <declare-styleable name="NumberPickerPreference">
+        <attr name="max" format="integer" />
+        <attr name="min" format="integer" />
+    </declare-styleable>
 </resources>

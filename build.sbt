@@ -1,7 +1,14 @@
 scalaVersion := "2.11.8"
+dexMaxHeap := "4g"
 
 enablePlugins(AndroidApp)
 android.useSupportVectors
+
+name := "MyVpn"
+
+applicationId := "com.vpn.mine"
+
+
 
 versionCode := Some(1)
 version := "0.1-SNAPSHOT"
@@ -11,7 +18,11 @@ instrumentTestRunner :=
 
 platformTarget := "android-26"
 
+compileOrder := CompileOrder.Mixed
 javacOptions in Compile ++= "-source" :: "1.7" :: "-target" :: "1.7" :: Nil
+scalacOptions ++= "-target:jvm-1.7" :: "-Xexperimental" :: Nil
+ndkJavah := Seq()
+ndkBuild := Seq()
 
 libraryDependencies ++=
   "com.android.support" % "appcompat-v7" % "25.1.0" ::
@@ -39,3 +50,34 @@ libraryDependencies ++=
     "net.glxn.qrgen" % "android" % "2.0" ::
     "com.google.code.findbugs" % "jsr305" % "3.0.2" ::
     Nil
+
+proguardVersion := "5.3.2"
+proguardCache := Seq()
+proguardOptions ++=
+  "-keep class com.github.shadowsocks.System { *; }" ::
+    "-keep class okhttp3.** { *; }" ::
+    "-keep interface okhttp3.** { *; }" ::
+    "-keep class okio.** { *; }" ::
+    "-keep interface okio.** { *; }" ::
+    "-dontwarn okio.**" ::
+    "-dontwarn com.google.android.gms.internal.**" ::
+    "-dontwarn com.j256.ormlite.**" ::
+    "-dontwarn org.xbill.**" ::
+    "-dontwarn javax.annotation.Nullable" ::
+    "-dontwarn javax.annotation.ParametersAreNonnullByDefault" ::
+    Nil
+
+
+shrinkResources := true
+typedResources := false
+resConfigs := Seq("ja", "ru", "zh-rCN", "zh-rTW")
+
+resolvers += Resolver.jcenterRepo
+lazy val nativeBuild = TaskKey[Unit]("native-build", "Build native executables")
+nativeBuild := {
+  val logger = streams.value.log
+  Process("./build.sh") ! logger match {
+    case 0 => // Success!
+    case n => sys.error(s"Native build script exit code: $n")
+  }
+}

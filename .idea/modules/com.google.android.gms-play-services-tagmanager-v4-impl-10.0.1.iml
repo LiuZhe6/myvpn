@@ -21,7 +21,7 @@
     <content url="file://$USER_HOME$/.android/sbt/exploded-aars/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1">
       <sourceFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1/src" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1/resources" type="java-resource" />
-      <excludeFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1/bin" />
+      <sourceFolder url="file://$USER_HOME$/.android/sbt/exploded-aars/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1/bin/generated/source" isTestSource="false" generated="true" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -120,5 +120,6 @@
     <orderEntry type="library" name="SBT: com.google.zxing:core:3.1.0:jar" level="project" />
     <orderEntry type="library" name="SBT: net.glxn.qrgen:android:2.0:jar" level="project" />
     <orderEntry type="library" name="SBT: net.glxn.qrgen:core:2.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.8:jar" level="project" />
   </component>
 </module>

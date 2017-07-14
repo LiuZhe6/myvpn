@@ -22,8 +22,8 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ApplicationActivity" />
         <activity android:name=".activity.AboutActivity" />
-        <activity android:name=".activity.AccountInfoActivity"></activity>
-        <activity android:name=".activity.ChangePasswordActivity"></activity>
+        <activity android:name=".activity.AccountInfoActivity"/>
+        <activity android:name=".activity.ChangePasswordActivity"/>
         <activity android:name=".activity.SelectRegionActivity" />
         <activity android:name=".activity.ApplicationActivity" />
     </application>

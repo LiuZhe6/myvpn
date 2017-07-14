@@ -41,7 +41,7 @@ public class AccountInfoActivity extends AppCompatActivity {
         expire_date_title_free_id.setText(expire_date_title_free);
 
         //菜单点击事件
-        final Button menu = (Button)findViewById(R.id.menu);
+        final Button menu = (Button)findViewById(R.id.moreMenu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

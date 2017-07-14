@@ -347,4 +347,85 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- proxy category -->
+    <string name="proxy_cat">Server Settings</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="proxy">Server</string>
+    <string name="proxy_summary">Hostname or IP of the remote server</string>
+    <string name="remote_port">Remote Port</string>
+    <string name="remote_port_summary">%d (port number of the remote server)</string>
+    <string name="port">Local Port</string>
+    <string name="port_summary">%d (port number of the local server)</string>
+    <string name="sitekey">Password</string>
+    <string name="sitekey_summary">Password of the remote server</string>
+    <string name="protocol">Protocol</string>
+    <string name="protocol_summary">Protocol you set in your server</string>
+    <string name="protocol_param">Protocol Param</string>
+    <string name="protocol_param_summary">Protocol param you input in your server</string>
+    <string name="obfs">Obfs</string>
+    <string name="obfs_summary">Obfs you selected in your server</string>
+    <string name="obfs_param">Obfs Param</string>
+    <string name="obfs_param_summary">Obfs param you put in your server</string>
+    <string name="enc_method">Encrypt Method</string>
+    <string name="china_dns">China DNS</string>
+    <string name="china_dns_summary">The DNS server you want to use to resolve normal domain,e.g. 223.5.5.5:53</string>
+    <string name="udp_dns_summary">Forward UDP packets to remote</string>
+    <string name="dns">DNS</string>
+    <string name="dns_summary">The DNS server you want to use to resolve special domain,e.g. 8.8.8.8:53</string>
+    <string name="route_list">Route</string>
+    <string-array name="route_entry">
+        <item>All</item>
+        <item>Bypass LAN</item>
+        <item>Bypass China</item>
+        <item>Bypass LAN &amp; China</item>
+        <item>GFW List</item>
+        <item>China List</item>
+        <item>Customize ACL File</item>
+    </string-array>
+    <string name="group_name">Group Name</string>
+    <string name="proxy_click">Click on the group name to view its URL</string>
+
+
+    <!-- feature category -->
+    <string name="feature_cat">Feature Settings</string>
+    <string name="ipv6">IPv6 Route</string>
+    <string name="ipv6_summary">Redirect IPv6 traffic to remote</string>
+    <string name="onetime_auth">One-time Authentication</string>
+    <string name="onetime_auth_summary">Enable one-time authentication</string>
+    <string name="http_proxy">HTTP Proxy</string>
+    <string name="http_proxy_summary">Local HTTP Proxy</string>
+    <string name="dns_proxy">DNS Proxy</string>
+    <string name="dns_proxy_summary">Redirect DNS queries to remote</string>
+    <string name="auto_set_gfwlist">CHN Route</string>
+    <string name="auto_set_gfwlist_summary">Bypass all sites located in China</string>
+
+    <string name="proxied_apps">Per-App Proxy</string>
+    <string name="proxied_apps_summary">Set proxy for selected apps, requires NAT mode under Android 4.x</string>
+    <string name="udp_dns">UDP Forwarding</string>
+    <string name="misc_cat">Misc</string>
+    <string name="auto_connect">Auto Connect</string>
+    <string name="auto_connect_summary">Enable ShadowsocksR on startup</string>
+    <string name="tcp_fastopen_summary">Toggling requires ROOT permission</string>
+    <string name="tcp_fastopen_summary_unsupported">Unsupported kernel version: %s &lt; 3.7.1</string>
+    <string name="nat">NAT mode (deprecated)</string>
+    <string name="nat_summary">Use NAT mode instead of VPN mode. Requires ROOT permission.</string>
+    <string name="recovery">Reset</string>
+    <string name="recovery_summary">Reset all the background services</string>
+
+    <string name="acl_file">ACL File URL</string>
+    <string name="aclupdate">ACL Update</string>
+    <string name="aclupdate_summary">Update Your ACL file</string>
+    <string name="aclupdate_url_notset">Sorry, an ACL file URL has to be set before you can update it. Please click on \'Customize ACL File\' in \'Route Setting\' and try again.</string>
+    <string name="aclupdate_downloading">Updating ACL file...</string>
+    <string name="aclupdate_successfully">Successfully updated ACL file.</string>
+    <string name="aclupdate_failed">Failed to update ACL file!</string>
+    <string name="frontproxy_set">FrontProxy</string>
+    <string name="quick_toggle">Toggle</string>
+    <string name="quick_switch">Switch</string>
+    <string name="add_profile_methods_scan_qr_code">Scan QR code</string>
+    <string name="add_profile_methods_manual_settings">Manual Settings</string>
+
+
+
 </resources>

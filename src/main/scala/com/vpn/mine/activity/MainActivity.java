@@ -1,5 +1,8 @@
 package com.vpn.mine.activity;
 
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,12 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.vpn.mine.Reality;
+import com.vpn.mine.ServiceBoundContext;
 import com.vpn.mine.activity.ConnectFragment;
 import com.vpn.mine.activity.HelpFragment;
 import com.vpn.mine.activity.MainFragmentPagerAdapter;
 import com.vpn.mine.activity.OptionFragment;
 import com.vpn.mine.activity.PurchaseFragment;
 import com.vpn.mine.R;
+import com.vpn.mine.aidl.IShadowsocksService;
+import com.vpn.mine.aidl.IShadowsocksServiceCallback;
+
 
 import java.util.ArrayList;
 
@@ -45,6 +53,36 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private HelpFragment helpFragment;
     private OptionFragment optionFragment;
 
+    private Handler handler = new Handler();
+
+    private IShadowsocksServiceCallback.Stub callback = new IShadowsocksServiceCallback.Stub() {
+        @Override
+        public void stateChanged(final int state, String profileName, String msg) throws RemoteException {
+            boolean post = handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    switch (state) {
+                        case 1://connecting
+//                            调整按钮
+                            break;
+                        case 2://connected
+
+                            break;
+                        case 4://stoped
+
+                            break;
+
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void trafficUpdated(long txRate, long rxRate, long txTotal, long rxTotal) throws RemoteException {
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +92,14 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         //创建控件和点击事件
         initView();
         initEvents();
+
+        //调用attachService
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                new Reality().attachService(callback);
+            }
+        });
     }
 
     private void initEvents() {
@@ -135,6 +181,10 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
+
+
+
+
 
     class NewPagerAdapter extends PagerAdapter{
 
