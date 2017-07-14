@@ -54,6 +54,7 @@ trait ServiceBoundContext extends Context with IBinder.DeathRecipient{
       intent.setAction(Action.SERVICE)
 
       connection = new MyServiceConnection()
+      println(connection + "不是空的")
       bindService(intent,connection,Context.BIND_AUTO_CREATE)
     }
   }
