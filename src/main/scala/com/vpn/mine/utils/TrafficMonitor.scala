@@ -3,7 +3,7 @@ package com.vpn.mine.utils
 import java.text.DecimalFormat
 
 import com.vpn.mine.R
-import com.vpn.mine.MyApplication
+import com.vpn.mine.MyApplication.app
 
 /**
   * Created by coder on 17-7-13.
@@ -26,8 +26,8 @@ object TrafficMonitor {
   private val units = Array("KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB", "BB", "NB", "DB", "CB")
   private val numberFormat = new DecimalFormat("@@@")
 
-  //暂时先不用
-  /*def formatTraffic(size: Long): String = {
+
+  def formatTraffic(size: Long): String = {
     var n: Double = size
     var i = -1
     while (n >= 1000) {
@@ -36,7 +36,7 @@ object TrafficMonitor {
     }
     if (i < 0) size + " " + app.getResources.getQuantityString(R.plurals.bytes, size.toInt)
     else numberFormat.format(n) + ' ' + units(i)
-  }*/
+  }
 
   def updateRate() = {
     val now = System.currentTimeMillis()
