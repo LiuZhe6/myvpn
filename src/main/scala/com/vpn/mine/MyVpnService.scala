@@ -21,7 +21,7 @@ import com.vpn.mine.job.AclSyncJob
   */
 
 //这里不全
-class MyVpnService extends VpnService with BaseService {
+class  MyVpnService extends VpnService with BaseService {
   val TAG = "MyVpnService"
   val VPN_MTU = 1500
   val PRIVATE_VLAN = "26.26.26.%s"

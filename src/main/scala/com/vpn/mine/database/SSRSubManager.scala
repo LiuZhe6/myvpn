@@ -75,7 +75,7 @@ class SSRSubManager(dbHelper: DBHelper) {
     } catch {
       case ex: Exception =>
         Log.e(TAG, "getAllSSRSubs", ex)
-        app.track(ex)
+//        app.track(ex)
         None
     }
   }

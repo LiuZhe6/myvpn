@@ -10,8 +10,10 @@ import android.support.v4.view.{PagerAdapter, ViewPager}
 import android.support.v7.app.AppCompatActivity
 import android.view.{View, ViewGroup}
 import com.vpn.mine.aidl.IShadowsocksServiceCallback
+import com.vpn.mine.job.SSRSubUpdateJob
 import com.vpn.mine.utils.State
 import com.vpn.mine.{R, ServiceBoundContext}
+import com.vpn.mine.MyApplication.app
 /**
   * Created by coder on 17-7-14.
   */
@@ -75,11 +77,36 @@ class MainActivity extends AppCompatActivity with TabLayout.OnTabSelectedListene
     initView()
     initEvent()
 
+
+    println("执行有关数据库的操作")
+    //和数据库有关的操作
+    app.ssrsubManager.getFirstSSRSub match {
+      case Some(first) => {
+
+      }
+      case None => app.ssrsubManager.createDefault()
+    }
+
+    println("接下来执行schedule")
+    SSRSubUpdateJob.schedule()
+
+    println("调用attachService")
     //调用attachService
-    handler.post(() => {
-      attachService(callBack)
-    })
+    handler.post(() => attachService(callBack)
+    )
   }
+
+  override def onDestroy() {
+    super.onDestroy()
+    detachService()
+    //待添加
+    /*if (receiver != null) {
+      unregisterReceiver(receiver)
+      receiver = null
+    }*/
+  }
+
+
 
   def attachService: Unit = attachService(callBack)
 

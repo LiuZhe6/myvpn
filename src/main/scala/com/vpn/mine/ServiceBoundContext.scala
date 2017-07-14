@@ -8,18 +8,27 @@ import com.vpn.mine.utils.Action
 /**
   * Created by coder on 17-7-13.
   */
-trait ServiceBoundContext extends Context with IBinder.DeathRecipient{
+trait ServiceBoundContext extends Context with IBinder.DeathRecipient {
 
-  class MyServiceConnection extends ServiceConnection{
-    override def onServiceDisconnected(componentName: ComponentName): Unit = ???
+  class MyServiceConnection extends ServiceConnection {
 
-    override def onServiceConnected(componentName: ComponentName, iBinder: IBinder): Unit = ???
+    override def onServiceConnected(name: ComponentName, service: IBinder): Unit = {
+      binder = service
+      service.linkToDeath(ServiceBoundContext.this, 0)
+      bgService = IShadowsocksService.Stub.asInterface(service)
+      registerCallback
+      ServiceBoundContext.this.onServiceConnected()
+    }
+
+    override def onServiceDisconnected(name: ComponentName): Unit = {
+      unregisterCallback
+      ServiceBoundContext.this.onServiceDisconnected()
+      bgService = null
+      binder = null
+    }
+
   }
 
-
-  private var callback: IShadowsocksServiceCallback.Stub = _
-  private var connection: MyServiceConnection = _
-  private var callbackRegistered: Boolean = _
 
   protected def registerCallback = if (bgService != null && callback != null && !callbackRegistered) try {
     bgService.registerCallback(callback)
@@ -39,6 +48,11 @@ trait ServiceBoundContext extends Context with IBinder.DeathRecipient{
   def onServiceDisconnected() = ()
   override def binderDied = ()
 
+
+  private var callback: IShadowsocksServiceCallback.Stub = _
+  private var connection: MyServiceConnection = _
+  private var callbackRegistered: Boolean = _
+
   // Variables
   var binder: IBinder = _
   var bgService: IShadowsocksService = _
@@ -46,16 +60,15 @@ trait ServiceBoundContext extends Context with IBinder.DeathRecipient{
 
   def attachService(callback: IShadowsocksServiceCallback.Stub = null): Unit = {
     this.callback = callback
-    if (bgService == null){
-      println("我就是测试一下看看能不能用")
+    if (bgService == null) {
       //默认执行的是VPN连接方式
       val s = classOf[MyVpnService]
-      val intent = new Intent(this,s)
+      val intent = new Intent(this, s)
       intent.setAction(Action.SERVICE)
 
       connection = new MyServiceConnection()
-      println(connection + "不是空的")
-      bindService(intent,connection,Context.BIND_AUTO_CREATE)
+      val b = bindService(intent, connection, Context.BIND_AUTO_CREATE)
+      println("绑定结果为:" + b)
     }
   }
 
@@ -74,5 +87,4 @@ trait ServiceBoundContext extends Context with IBinder.DeathRecipient{
     }
     bgService = null
   }
-
 }

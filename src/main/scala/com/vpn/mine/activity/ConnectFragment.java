@@ -363,6 +363,15 @@ public class ConnectFragment extends Fragment implements View.OnClickListener {
                     user.setExpiration(jsonOb.getString("expiration"));
                     user.setLevel(jsonOb.getString("level"));
                     userInfoTextView.setText(user.getExpiration());
+
+                    //跳转到账户信息界面
+                    Intent intent = new Intent(getContext(),AccountInfoActivity.class);
+                    intent.putExtra("user_name",jsonOb.getString("username"));
+                    intent.putExtra("user_email",jsonOb.getString("email"));
+                    intent.putExtra("user_account_type",jsonOb.getString("level"));
+                    intent.putExtra("expire_date_title_free",jsonOb.getString("expiration"));
+                    startActivity(intent);
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
