@@ -2,6 +2,8 @@ package com.vpn.mine.database
 
 import android.util.Log
 import com.vpn.mine.MyApplication.app
+import com.vpn.mine.entity.Node
+import com.vpn.mine.utils.DataSaver
 /**
   * Created by coder on 17-7-13.
   */
@@ -176,10 +178,34 @@ class ProfileManager(dbHelper: DBHelper) {
 
   def getProfile(id: Int): Option[Profile] = {
     try {
-      dbHelper.profileDao.queryForId(id) match {
+      //从数据库里读取
+      /*dbHelper.profileDao.queryForId(id) match {
         case profile: Profile => Option(profile)
         case _ => None
+      }*/
+
+      println("选择的序号是:"+id)
+//      val node : Node = DataSaver.NODES.get(id)
+//      print("选择的服务器是:"+node.getNodeName)
+      var profile : Profile = null
+      if (id != 0){
+       profile = new Profile
+         /*profile.name=node.getNodeName
+        profile.host=node.getAddress
+        profile.remotePort=Integer.parseInt(node.getPort)
+        profile.password=node.getPassword
+        profile.protocol=node.getProtocol
+        profile.obfs=node.getPbfs
+        profile.method=node.getMethod*/
+        profile.name="香港"
+        profile.host="47.89.29.181"
+        profile.remotePort=2025
+        profile.password="837b23"
+        profile.protocol="origin"
+        profile.obfs="plain"
+        profile.method="rc4-md5"
       }
+      Option(profile)
     } catch {
       case ex: Exception =>
         Log.e(TAG, "getProfile", ex)

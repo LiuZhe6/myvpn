@@ -1,5 +1,6 @@
 package com.vpn.mine.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.VpnService;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 /**
  * Created by coder on 17-7-12.
  */
-public class SelectRegionActivity extends AppCompatActivity {
+public class SelectRegionActivity extends MainActivity {
 
     //用户信息
     private User user;
@@ -37,7 +38,7 @@ public class SelectRegionActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_region_select);
 
@@ -53,6 +54,9 @@ public class SelectRegionActivity extends AppCompatActivity {
         node.setNid(0);
         node.setArea("auto");
         nodeList.add(0, node);
+        //将nodeList存入DataSaver
+        DataSaver.NODES = new ArrayList<>(nodeList);
+        System.out.println("测试一波，服务器名字为:"+DataSaver.NODES.get(1).getNodeName());
 
         preferences = PreferenceManager.getDefaultSharedPreferences(SelectRegionActivity.this);
         editor = preferences.edit();
@@ -141,7 +145,8 @@ public class SelectRegionActivity extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.node_list_layout:
-                    DataSaver.NODE_INDEX = (int) view.getTag();
+                    int pos = (int) view.getTag();
+                    DataSaver.NODE_INDEX = pos;
                     notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "点击了" + nodeArrayList.get(DataSaver.NODE_INDEX).getNodeName(),
                             Toast.LENGTH_SHORT).show();
@@ -150,16 +155,9 @@ public class SelectRegionActivity extends AppCompatActivity {
                     editor.putString("node_name", DataSaver.NODE_NAME);
                     editor.apply();
 
-                    //连接VPn
-                    Intent vpnIntent = VpnService.prepare(getApplicationContext());
-                    //如果当前系统中没有VPN连接，或者存在的VPN连接不是本程序建立的
-                    //则VpnService.prepare函数会返回一个intent。这个intent就是用来触发确认对话框的
-                    if (vpnIntent != null) {
-                        startActivityForResult(vpnIntent, 0);
-                    } else {
-                        //如果当前系统中有VPN连接，并且这个连接就是本程序建立的，则函数会返回null，就不需要用户再确认了
-                        onActivityResult(0, RESULT_OK, null);
-                    }
+                    //待添加当前VPN连接状态的判断
+                    //准备连接vpn
+                    prepareStartService();
 
 
                     //如果成功启动后返回选择的序号
@@ -178,15 +176,15 @@ public class SelectRegionActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == 0){
+        if (resultCode == Activity.RESULT_OK) {
+//            System.out.println("准备进入serviceLoad");
             serviceLoad();
+        } else {
+            //待添加
+//            System.out.println("没有执行serviceLoad");
         }
     }
 
-    private void serviceLoad() {
-        /*Intent intent = new Intent(this, MyVpnService.class);
-        //传值
-        startService(intent);*/
-    }
+
 }
 

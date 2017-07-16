@@ -43,6 +43,10 @@ object MyApplication {
 
 }
 class MyApplication extends Application {
+  def createFiles(): Unit = {
+
+  }
+
   import MyApplication._
   final val SIG_FUNC = "getSignature"
   var containerHolder: ContainerHolder = _
@@ -183,6 +187,7 @@ class MyApplication extends Application {
   }
 
 
+
   def crashRecovery() {
     val cmd = new ArrayBuffer[String]()
 
@@ -201,13 +206,18 @@ class MyApplication extends Application {
   }
 
   def copyAssets() {
+    println("进入copyAssets")
     crashRecovery() // ensure executables are killed before writing to them
+    println("准备进入copyAssets(System)")
     copyAssets(System.getABI)
+    println("准备进入acl")
     copyAssets("acl")
+    println("准备进入Shell.SH.run")
     Shell.SH.run(EXECUTABLES.map("chmod 755 " + getApplicationInfo.dataDir + '/' + _))
+    println("copyAssets结束")
 //    editor.putInt(Key.currentVersionCode, BuildConfig.VERSION_CODE).apply()
   }
 
-//  def updateAssets() = if (settings.getInt(Key.currentVersionCode, -1) != BuildConfig.VERSION_CODE) copyAssets()
+  def updateAssets() = /*if (settings.getInt(Key.currentVersionCode, -1) != BuildConfig.VERSION_CODE)*/ copyAssets()
 
 }

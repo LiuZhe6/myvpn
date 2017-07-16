@@ -181,9 +181,9 @@ object State {
 object Action {
   val SERVICE = "com.vpn.mine.SERVICE"
   val CLOSE = "com.vpn.mine.CLOSE"
-  val QUICK_SWITCH = "in.zhaoj.shadowsocksr.QUICK_SWITCH"
-  val SCAN = "in.zhaoj.shadowsocksr.intent.action.SCAN"
-  val SORT = "in.zhaoj.shadowsocksr.intent.action.SORT"
+  val QUICK_SWITCH = "com.vpn.mine.QUICK_SWITCH"
+  val SCAN = "com.vpn.mine.intent.action.SCAN"
+  val SORT = "com.vpn.mine.intent.action.SORT"
 }
 
 object Route {

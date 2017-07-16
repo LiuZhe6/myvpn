@@ -1,6 +1,9 @@
 package com.vpn.mine.utils;
 
+import com.vpn.mine.entity.Node;
 import com.vpn.mine.entity.User;
+
+import java.util.ArrayList;
 
 /**
  * Created by coder on 17-7-2.
@@ -19,5 +22,6 @@ public class DataSaver {
     //节点选择(用于connect页面显示)
     public static String NODE_NAME ;
 
-
+    //节点列表
+    public static ArrayList<Node> NODES ;
 }

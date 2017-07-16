@@ -3,6 +3,8 @@ package com.vpn.mine.activity
 import java.util
 import java.util.ArrayList
 
+import android.app.Activity
+import android.net.VpnService
 import android.os.{Bundle, Handler}
 import android.support.design.widget.TabLayout
 import android.support.v4.app.{Fragment, FragmentManager}
@@ -11,7 +13,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.{View, ViewGroup}
 import com.vpn.mine.aidl.IShadowsocksServiceCallback
 import com.vpn.mine.job.SSRSubUpdateJob
-import com.vpn.mine.utils.State
+import com.vpn.mine.utils.{DataSaver, State}
 import com.vpn.mine.{R, ServiceBoundContext}
 import com.vpn.mine.MyApplication.app
 /**
@@ -94,6 +96,19 @@ class MainActivity extends AppCompatActivity with TabLayout.OnTabSelectedListene
     //调用attachService
     handler.post(() => attachService(callBack)
     )
+  }
+  protected override def onResume() {
+    super.onResume()
+
+    app.refreshContainerHolder
+
+    //待添加更新当前状态
+//    updateState(updateCurrentProfile())
+  }
+
+  override def onStart() {
+    super.onStart()
+    registerCallback
   }
 
   override def onDestroy() {
@@ -190,5 +205,27 @@ class MainActivity extends AppCompatActivity with TabLayout.OnTabSelectedListene
       container.addView(viewList.get(position))
       viewList.get(position)
     }
+  }
+
+  def prepareStartService(): Unit ={
+//    println("进来了")
+    //连接VPn
+    val vpnIntent = VpnService.prepare(this)
+    //如果当前系统中没有VPN连接，或者存在的VPN连接不是本程序建立的
+    //则VpnService.prepare函数会返回一个intent。这个intent就是用来触发确认对话框的
+    if (vpnIntent != null) startActivityForResult(vpnIntent, 0)
+    else { //如果当前系统中有VPN连接，并且这个连接就是本程序建立的，则函数会返回null，就不需要用户再确认了
+      onActivityResult(0, Activity.RESULT_OK, null)
+    }
+  }
+
+  def serviceLoad(): Unit ={
+    //更新profileId的值
+    app.profileId(DataSaver.NODE_INDEX)
+//    println(bgService != null)
+    bgService.use(app.profileId)
+    println("use方法调用结束")
+    //待添加改变连接的状态显示
+
   }
 }

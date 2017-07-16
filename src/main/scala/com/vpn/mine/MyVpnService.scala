@@ -101,22 +101,23 @@ class  MyVpnService extends VpnService with BaseService {
   }
 
   override def startRunner(profile: Profile) {
-
+    println(TAG + ":startRunner")
     // ensure the VPNService is prepared
     if (VpnService.prepare(this) != null) {
+      println("在"+TAG+"准备调用stopRunner")
       val i = new Intent(this, classOf[MyVpnRunnerActivity])
       i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
       startActivity(i)
       stopRunner(true)
       return
     }
-
+    println(TAG+":startRunner正常结束")
     super.startRunner(profile)
   }
 
   override def connect() = {
     super.connect()
-
+    println(TAG+":connect调用")
     if (new File(getApplicationInfo.dataDir + "/proxychains.conf").exists) {
       proxychains_enable = true
       //Os.setenv("PROXYCHAINS_CONF_FILE", getApplicationInfo.dataDir + "/proxychains.conf", true)
@@ -156,7 +157,7 @@ class  MyVpnService extends VpnService with BaseService {
       case Some(addr) => profile.host = addr
       case None => throw NameNotResolvedException()
     }
-
+    println(TAG+":connect方法准备调用handleConnection")
     handleConnection()
     changeState(State.CONNECTED)
 
@@ -168,20 +169,27 @@ class  MyVpnService extends VpnService with BaseService {
 
   /** Called when the activity is first created. */
   def handleConnection() {
-
+    println(TAG+":handleConnection调用")
+    //开启tun2socksProcess
     val fd = startVpn()
+    println(TAG+":handleConnection的fd:"+fd)
     if (!sendFd(fd)) throw new Exception("sendFd failed")
 
+    println(TAG+":handleConnection开始剩下线程")
+    //开启sslocalProcess
     startShadowsocksDaemon()
 
+    //不会调用
     if (profile.udpdns) {
       startShadowsocksUDPDaemon()
     }
 
+    //开启进程
     if (!profile.udpdns) {
-      startDnsDaemon()
-      startDnsTunnel()
+      startDnsDaemon()  //开启pdnsProcess
+      startDnsTunnel()  //开启sstunnelProgress
     }
+    println(TAG+":handleConnection调用结束")
   }
 
 
@@ -380,7 +388,7 @@ class  MyVpnService extends VpnService with BaseService {
 
   @SuppressLint(Array("NewApi"))
   def startVpn(): Int = {
-
+    println(T+":startVpn准备开始tun2socks")
     val builder = new Builder()
     builder
       .setSession(profile.name)
@@ -435,7 +443,7 @@ class  MyVpnService extends VpnService with BaseService {
 
     val fd = conn.getFd
 
-    var cmd = ArrayBuffer[String](getApplicationInfo.dataDir + "/tun2socks",
+    var cmd = ArrayBuffer[String](getApplicationInfo.dataDir /*"/data/user/0/com.vpn.mine"*/ + "/tun2socks",
       "--netif-ipaddr", PRIVATE_VLAN.formatLocal(Locale.ENGLISH, "2"),
       "--netif-netmask", "255.255.255.0",
       "--socks-server-addr", "127.0.0.1:" + profile.localPort,
@@ -453,6 +461,8 @@ class  MyVpnService extends VpnService with BaseService {
       cmd += ("--dnsgw", "%s:%d".formatLocal(Locale.ENGLISH, PRIVATE_VLAN.formatLocal(Locale.ENGLISH, "1"),
         profile.localPort + 53))
 
+    println("cmd命令")
+    println(cmd)
     if (BuildConfig.DEBUG) Log.d(TAG, cmd.mkString(" "))
 
     tun2socksProcess = new GuardedProcess(cmd).start(() => sendFd(fd))
@@ -464,6 +474,7 @@ class  MyVpnService extends VpnService with BaseService {
     if (fd != -1) {
       var tries = 1
       while (tries < 5) {
+        println("第"+tries+"次调用")
         Thread.sleep(1000 * tries)
         if (System.sendfd(fd, getApplicationInfo.dataDir + "/sock_path") != -1) {
           return true

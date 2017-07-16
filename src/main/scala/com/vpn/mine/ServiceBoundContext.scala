@@ -12,7 +12,10 @@ trait ServiceBoundContext extends Context with IBinder.DeathRecipient {
 
   class MyServiceConnection extends ServiceConnection {
 
+    val Tag = "ServiceBoundContext"
+
     override def onServiceConnected(name: ComponentName, service: IBinder): Unit = {
+      println(Tag + ":进入了onServiceConnected")
       binder = service
       service.linkToDeath(ServiceBoundContext.this, 0)
       bgService = IShadowsocksService.Stub.asInterface(service)

@@ -33,6 +33,7 @@ trait BaseService extends Service{
   case class KcpcliParseException(cause: Throwable) extends Exception(cause)
   case class NullConnectionException() extends NullPointerException
 
+  val T = "BaseService"
   var timer: Timer = _
   var trafficMonitorThread: TrafficMonitorThread = _
 
@@ -82,7 +83,10 @@ trait BaseService extends Service{
       }
     }
 
-    override def use(profileId: Int) = synchronized(if (profileId < 0) stopRunner(true) else {
+    override def use(profileId: Int) = {
+      println(T+":use方法调用")
+      synchronized(if (profileId < 0) stopRunner(true) else {
+
       val profile = app.profileManager.getProfile(profileId).orNull
       if (profile == null) stopRunner(true) else state match {
         case State.STOPPED => if (checkProfile(profile)) startRunner(profile)
@@ -93,16 +97,22 @@ trait BaseService extends Service{
         case _ => Log.w(BaseService.this.getClass.getSimpleName, "Illegal state when invoking use: " + state)
       }
     })
+      println(T+":use方法调用结束")
 
+    }
     override def useSync(profileId: Int) = use(profileId)
   }
 
-  def checkProfile(profile: Profile) = if (TextUtils.isEmpty(profile.host) || TextUtils.isEmpty(profile.password)) {
-    stopRunner(true, getString(R.string.proxy_empty))
-    false
-  } else true
+  def checkProfile(profile: Profile) = {
+    println("检查profile")
+    if (TextUtils.isEmpty(profile.host) || TextUtils.isEmpty(profile.password)) {
+      stopRunner(true, getString(R.string.proxy_empty))
+      false
+    } else true
+  }
 
   def connect() {
+    println(T+":connect方法调用")
     if (profile.host == "198.199.101.152") {
       val holder = app.containerHolder
       val container = holder.getContainer
@@ -136,10 +146,13 @@ trait BaseService extends Service{
       profile.password = proxy(2).trim
       profile.method = proxy(3).trim
     }
+    println(T+":connect方法调用结束")
+
   }
   def startRunner(profile: Profile) {
+    println(T+":startRunner方法")
     this.profile = profile
-
+    println("开始服务")
     startService(new Intent(this, getClass))
     TrafficMonitor.reset()
     trafficMonitorThread = new TrafficMonitorThread(getApplicationContext)
@@ -170,9 +183,12 @@ trait BaseService extends Service{
         exc.printStackTrace()
         app.track(exc)
     })
+    println(T+":startRunner方法调用结束")
+
   }
 
   def stopRunner(stopService: Boolean, msg: String = null) {
+    println(T+":stopRunner方法开始")
     // clean up recevier
     if (closeReceiverRegistered) {
       unregisterReceiver(closeReceiver)
@@ -193,7 +209,7 @@ trait BaseService extends Service{
 
     // stop the service if nothing has bound to it
     if (stopService) stopSelf()
-
+    println(T+":stopRunner结束")
     profile = null
   }
 
@@ -238,7 +254,11 @@ trait BaseService extends Service{
   override def onCreate() {
     super.onCreate()
     app.refreshContainerHolder
+    //自带的
 //    app.updateAssets()
+
+    //我写的
+    app.createFiles()
   }
 
   // Service of shadowsocks should always be started explicitly

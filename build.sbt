@@ -9,23 +9,19 @@ name := "MyVpn"
 applicationId := "com.vpn.mine"
 
 
-
-versionCode := Some(1)
-version := "0.1-SNAPSHOT"
-
 instrumentTestRunner :=
   "android.support.test.runner.AndroidJUnitRunner"
 
 platformTarget := "android-26"
 
-compileOrder := CompileOrder.Mixed
+compileOrder := CompileOrder.JavaThenScala
 javacOptions in Compile ++= "-source" :: "1.7" :: "-target" :: "1.7" :: Nil
 scalacOptions ++= "-target:jvm-1.7" :: "-Xexperimental" :: Nil
 ndkJavah := Seq()
 ndkBuild := Seq()
 
 libraryDependencies ++=
-  "com.android.support" % "appcompat-v7" % "25.1.0" ::
+    "com.android.support" % "appcompat-v7" % "25.1.0" ::
     "com.android.support.test" % "runner" % "0.5" % "androidTest" ::
     "com.android.support.test.espresso" % "espresso-core" % "2.2.2" % "androidTest" ::
     "com.android.support" % "design" % "25.1.0" ::
@@ -54,7 +50,7 @@ libraryDependencies ++=
 proguardVersion := "5.3.2"
 proguardCache := Seq()
 proguardOptions ++=
-  "-keep class com.github.shadowsocks.System { *; }" ::
+  "-keep class com.vpn.mine.System { *; }" ::
     "-keep class okhttp3.** { *; }" ::
     "-keep interface okhttp3.** { *; }" ::
     "-keep class okio.** { *; }" ::
